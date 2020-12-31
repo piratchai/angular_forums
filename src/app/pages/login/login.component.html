@@ -1,0 +1,21 @@
+<div class="p-grid">
+    <div class="p-col-4 p-offset-4">
+        <div class="p-fluid">
+            <div class="p-field">
+                <label for="username" title="ชื่อผู้ใข้">Username</label>
+                <input id="username" type="text" aria-describedby="username-help" class="p-invalid" pInputText [(ngModel)]="formModel.username">
+                <small id="username-help" class="p-invalid" title="ป้อนชื่อผู้ใช้งาน">Enter your username.</small>
+            </div>
+            <div class="p-field">
+                <label for="password" title="รหัสผ่าน">Password</label>
+                <input id="password" type="password" aria-describedby="password-help" class="p-invalid" pInputText [(ngModel)]="formModel.password">
+                <small id="password-help" class="p-invalid" title="ป้อนรหัสผ่าน">Enter your password.</small>
+            </div>
+        </div>
+        <div class="p-text-center">
+            <button pButton type="button" iconPos="left" label='Login' title="เข้าสู่ระบบ" (click)='login()'></button>
+        </div>
+    </div>
+</div>
+
+<p-toast position="top-center"></p-toast>

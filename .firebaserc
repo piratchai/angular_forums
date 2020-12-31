@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "angular-demo-d8cf9": {
+      "hosting": {
+        "forums-primeng": [
+          "angular-demo-d8cf9"
+        ]
+      }
+    }
+  }
+}

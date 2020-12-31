@@ -1,0 +1,33 @@
+<div style="margin: 1% 0% 1% 0%;">
+    <button pButton type="button" icon="pi pi-check" iconPos="left" label='New Forum' title="สร้างฟอรัม" (click)='newForum()'></button>
+</div>
+
+
+<div>
+    <div *ngIf='forums?.length'>
+        <p-table [value]='forums' [paginator]='true' [rows]='10'>
+            <ng-template pTemplate='header'>
+                <tr>
+                    <th title="ลำดับ">No#</th>
+                    <th>Subject</th>
+                    <th>Description</th>
+                    <th>UpdateOn</th>
+                    <th>Category</th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate='body' let-forum let-rowIndex='rowIndex'>
+                <tr>
+                    <td>{{rowIndex + 1}}</td>
+                    <td>{{forum.subject}}</td>
+                    <td>{{forum.description}}</td>
+                    <td>{{forum.update_time.toDate() | date: 'dd.MM.yyyy HH:mm:ss'}}</td>
+                    <td>{{forum.category_id}}</td>
+                </tr>
+            </ng-template>
+        </p-table>
+    </div>
+
+    <div *ngIf='!forums' class="p-col p-text-center">
+        <h2>Loading..</h2>
+    </div>
+</div>

@@ -1,0 +1,44 @@
+<div class="p-grid">
+    <div class="p-col-4 p-offset-4">
+        <div class="p-fluid">
+            <div class="p-field">
+                <label for="firstname" title="ชื่อ">Firstname</label>
+                <input id="firstname" type="text" aria-describedby="firstname-help" class="p-invalid" pInputText [(ngModel)]="formModel.firstname">
+                <small id="firstname-help" class="p-invalid" title="ป้อนชื่อ">Enter your firstname.</small>
+            </div>
+            <div class="p-field">
+                <label for="lastname" title="นามสกุล">Lastname</label>
+                <input id="lastname" type="text" aria-describedby="lastname-help" class="p-invalid" pInputText [(ngModel)]="formModel.lastname">
+                <small id="lastname-help" class="p-invalid" title="ป้อนนามสกุล">Enter your lastname.</small>
+            </div>
+            <div class="p-field">
+                <label for="phone" title="เบอร์โทร">Phone</label>
+                <input id="phone" type="text" pInputText [(ngModel)]="formModel.phone">
+            </div>
+            <div class="p-field">
+                <label for="address" title="ที่อยู่">Address</label>
+                <textarea [rows]="5" [cols]="30" pInputTextarea autoResize="autoResize" [(ngModel)]="formModel.address"></textarea>
+            </div>
+            <div class="p-field">
+                <label for="username" title="ชื่อผู้ใข้">Username</label>
+                <input id="username" type="text" aria-describedby="username-help" class="p-invalid" pInputText [(ngModel)]="formModel.username">
+                <small id="username-help" class="p-invalid" title="ป้อนชื่อผู้ใช้งาน">Enter your username.</small>
+            </div>
+            <div class="p-field">
+                <label for="password" title="รหัสผ่าน">Password</label>
+                <input id="password" type="password" aria-describedby="password-help" class="p-invalid" pInputText [(ngModel)]="formModel.password">
+                <small id="password-help" class="p-invalid" title="ป้อนรหัสผ่าน">Enter your password.</small>
+            </div>
+            <div class="p-field">
+                <label for="confirmPassword" title="ยืนยัน รหัสผ่าน">Confirm Password</label>
+                <input id="confirmPassword" type="password" aria-describedby="confirmPassword-help" class="p-invalid" pInputText [(ngModel)]="formModel.confirmPassword">
+                <small id="confirmPassword-help" class="p-invalid" title="ป้อนรหัสผ่าน">Enter your confirm password.</small>
+            </div>
+        </div>
+        <div class="p-text-center" style="margin-bottom: 20%;">
+            <button pButton type="button" iconPos="left" label='Register' title="ลงทะเบียน" (click)='register()'></button>
+        </div>
+    </div>
+</div>
+
+<p-toast position="top-center"></p-toast>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgxUiLoaderService } from 'ngx-ui-loader';
 import { MessageService } from 'primeng/api';
 import { Common } from 'src/app/common/common';
 import { Constants } from 'src/app/constants/Constants';
@@ -24,21 +25,28 @@ export class RegisterComponent implements OnInit {
     address: ''
   }
 
-  constructor(private registerService: RegisterService, private messageService: MessageService) { }
+  constructor(private registerService: RegisterService, private messageService: MessageService,
+    private ngxService: NgxUiLoaderService) { }
 
   ngOnInit(): void {
   }
 
   register(){
+
+    this.ngxService.start();
+
     if(Common.IsHasElementStrEmptyInObj(this.formModel, ['phone', 'address'])) {
       this.showPopup(Constants.SeverityMsg.Warn, Constants.SummaryMsg.WaringTH, Constants.DetailMsg.EnterFieldsTH);
+      this.ngxService.stop();
       return;
     } 
       
 
     if(this.ValidPassword()) {
       this.showPopup(Constants.SeverityMsg.Warn, Constants.SummaryMsg.WaringTH, Constants.DetailMsg.PasswordDoNotMatchTH);
-      return};
+      this.ngxService.stop();
+      return
+    };
 
     this.registerService.getAllUser().subscribe(userData => {
       console.log(userData);
@@ -55,12 +63,16 @@ export class RegisterComponent implements OnInit {
       user.address = this.formModel.address;
 
       if(this.isDuplicateUsername(user, userLst)){
+        this.ngxService.stop();
         return;
       };
 
       this.registerService.addUser(user).then(r => {
         // show popup success //
         //console.log('add user successfully.');
+
+        this.ngxService.stop();
+
         this.showPopup(Constants.SeverityMsg.Success, Constants.SummaryMsg.InfoTH, Constants.DetailMsg.AddDataSuccessTH)
         this.clearFormFields();
       })
@@ -68,6 +80,8 @@ export class RegisterComponent implements OnInit {
         // show popup failed //
         //console.log('add user failed.')
 
+        this.ngxService.stop();
+        
         this.showPopup(Constants.SeverityMsg.error, Constants.SummaryMsg.ErrorTH, Constants.DetailMsg.AddDataFailedTH)
       })
 

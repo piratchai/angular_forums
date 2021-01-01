@@ -1,4 +1,7 @@
+import { DatePipe } from "@angular/common";
+
 export class Common{
+
     static isStringEmpty(str = ""){
         return(!str || 0 === str.length);
     }
@@ -38,5 +41,41 @@ export class Common{
         }
 
         return false;
+    }
+
+    static convertTimestampToDateTime(obj, dateFormat){
+        var objData = [];
+
+        if(!Array.isArray(obj)){ // not array
+            return;
+        }
+
+        
+
+        objData = obj;
+
+        for(var i = 0; i < objData.length; i++){
+            var eachObj = objData[i];
+
+            var objEntries = Object.entries(eachObj);
+
+            for(var e = 0; e < objEntries.length; e++){
+                var objKeyValue = objEntries[e];
+
+                if(objKeyValue.length != 2)
+                    continue;
+
+                var key = objKeyValue[0];
+                var value = <any>objKeyValue[1];
+
+                if(typeof(value.toDate) == "function"){
+                    var date = value.toDate();
+                    var resultNewDate = new DatePipe("en-US").transform(date, dateFormat)
+                    eachObj[key + "Str"] = resultNewDate;
+                }
+            }
+
+            
+        }
     }
 }

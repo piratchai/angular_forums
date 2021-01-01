@@ -21,6 +21,12 @@ export class Constants{
         AddDataFailedTH: "เพิ่มข้อมูลไม่สำเร็จ",
         PasswordDoNotMatchTH: "รหัสผ่านไม่ตรงกัน"
       }
+
+      public static dateFormat = {
+        ddMMyyyysperateBySlash: "dd/MM/yyyy",
+        ddMMyyyyHHmmsssSperateBySlash: "dd/MM/yyyy HH:mm:ss",
+        ddMMyyyysperateByDash: "dd-MM-yyyy",
+      }
 }
 
  

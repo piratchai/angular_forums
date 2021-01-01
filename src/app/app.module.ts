@@ -21,6 +21,10 @@ import { AboutComponent } from './pages/about/about.component';
 import { TableModule } from 'primeng/table';
 import { ButtonModule } from 'primeng/button';
 
+// -- NgxUiLoader Module -- //
+import { NgxUiLoaderModule } from 'ngx-ui-loader';
+import { DatePipe } from '@angular/common';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -48,9 +52,13 @@ import { ButtonModule } from 'primeng/button';
     MessageModule,
     MenubarModule,
     TableModule,
-    ButtonModule
+    ButtonModule,
+
+    NgxUiLoaderModule
   ],
-  providers: [],
+  providers: [
+    DatePipe
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

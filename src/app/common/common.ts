@@ -44,6 +44,30 @@ export class Common{
     }
 
     static convertTimestampToDateTime(obj, dateFormat){
+        /* 
+            - Input Parameters
+            obj : parameter ส่งเข้ามาแบบ obj array
+                example : [ 
+                        { 
+                            firstname: 'peter', 
+                            lastname: 'pops', 
+                            create_time: [TimeStamp] 
+                        }
+                    ]
+            dateFormat : parameter ส่งเข้ามาแบบ String format
+                example : "dd/MM/yyyy"
+            
+            - Output Obj array
+            obj parameter
+                example : [ 
+                        { 
+                            firstname: 'peter', 
+                            lastname: 'pops', 
+                            create_time: [TimeStamp], 
+                            create_timeStr: [following dateFormat parameter] 
+                        }
+                    ]
+        */
         var objData = [];
 
         if(!Array.isArray(obj)){ // not array

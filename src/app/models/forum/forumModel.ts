@@ -7,6 +7,6 @@ export class ForumModel{
     create_by: String;
     create_time: Date;
     update_by: String;
-    update_time: String;
+    update_time: Date;
     category_id: String;
 }

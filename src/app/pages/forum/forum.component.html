@@ -1,0 +1,25 @@
+<div class="p-grid" style='margin-top: 1%'>
+    <div class="p-col-4 p-offset-4">
+        <div class="p-fluid">
+            <div class="p-field">
+                <label for="subject" title="หัวข้อ">Subject</label>
+                <input id="subject" type="text" aria-describedby="subject-help" class="p-invalid" pInputText [(ngModel)]="formModel.subject">
+                <small id="subject-help" class="p-invalid" title="ป้อนชื่อผู้ใช้งาน">Enter your subject.</small>
+            </div>
+        </div>
+    </div>
+
+    <div class="p-col-8 p-offset-2">
+        <div class="p-fluid">
+            <div class="p-field">
+                <label for="subject" title="ลายละเอียด">Description</label>
+                <p-editor [(ngModel)]="formModel.description" [style]="{'height':'320px'}"></p-editor>
+            </div>
+        </div>
+        <div class="p-text-center">
+            <button pButton type="button" iconPos="left" label='Save' title="บันทึก" (click)='saveForum()'></button>
+        </div>
+    </div>
+</div>
+
+<p-toast position="top-center"></p-toast>

@@ -20,10 +20,12 @@ import { ForumsComponent } from './pages/forums/forums.component';
 import { AboutComponent } from './pages/about/about.component';
 import { TableModule } from 'primeng/table';
 import { ButtonModule } from 'primeng/button';
+import { EditorModule } from 'primeng/editor';
 
 // -- NgxUiLoader Module -- //
 import { NgxUiLoaderModule } from 'ngx-ui-loader';
 import { DatePipe } from '@angular/common';
+import { ForumComponent } from './pages/forum/forum.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +33,8 @@ import { DatePipe } from '@angular/common';
     LoginComponent,
     RegisterComponent,
     ForumsComponent,
-    AboutComponent
+    AboutComponent,
+    ForumComponent
   ],
   imports: [
     // -- Angular Module -- //
@@ -53,6 +56,7 @@ import { DatePipe } from '@angular/common';
     MenubarModule,
     TableModule,
     ButtonModule,
+    EditorModule,
 
     NgxUiLoaderModule
   ],

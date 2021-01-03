@@ -1,4 +1,5 @@
 import { DatePipe } from "@angular/common";
+import { Constants } from "../constants/Constants";
 
 export class Common{
 
@@ -101,5 +102,16 @@ export class Common{
 
             
         }
+    }
+
+    static setUUIDValue(uuid){ // return default UUID Or UUID, if value is equal default UUID
+        var r = "";
+
+        r = uuid;
+
+        if(uuid == null || uuid == undefined || uuid == "" || uuid == '' || uuid == "null" || uuid == "undefined")
+            r = Constants.constantValues.defaultUUID;
+
+        return r;
     }
 }
